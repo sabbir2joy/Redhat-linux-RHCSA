@@ -1,0 +1,47 @@
+User Management, Password Management & Group Management
+
+whami/ who/ w > to check which user logged in
+id > to check uid, gid of logged in user.
+su username > switch user on current dir
+su - username > switch user on home dir
+/etc/login.defs (show user expiry info)
+#chage -l test (to show expiry parameters)
+#chage test (to change parameters)
+
+give sudo access to a user make a entry like root user
+# visudo
+
+Add User (/etc/passwd)
+#useradd -m -d /home/test -c "TestUser" test
+#useradd -D (To check defaults)
+#passwd test (change pass)
+
+Delete User
+#userdel -r test (-r Delete user with home dir)
+
+/etc/skel (copy files of this dir to other acc during acc creation)
+#echo $SHELL (To check shell)
+#chsh (change shell)
+
+#usermod -L test (lock User)
+#usermod -u test (unlock User)
+
+Modify User / Dir
+#usermod -c "Admin" test (-c for display name)
+#chmod 777 filename / Dir
+chmod -v u+rw /path/to/file
+chmod -cR g+w /path/to/directory
+chmod u=rwx,g+w,o-x /path/to/file
+
+Group Management (/etc/group)
+#groupadd tennis
+#groups
+#groups test (check test user belong groups)
+# id -a test
+#usermod -a -g primary_group -G secondary_group
+#groupmod -n cricket tennis(modify group name)
+#groupdel cricket
+#gpasswd -A username groupname (make a user Admin of a group)
+#gpasswd -a username groupname (add user to a group)
+##gpasswd -d username groupname (delete user to a group)
+#id -a username
