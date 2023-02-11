@@ -1,0 +1,36 @@
+Special File Permission
+
+There are 3 special permission that are available for executable files and directories. These are :
+
+1. SUID permission
+2. SGID permission
+3. Sticky bit
+
+SUID Bit: A file with SUID always executes as the user who owns the file, regardless of the user passing the command.
+If the file owner doesn't have execute permissions, then use an uppercase S here.
+Setting SUID bit
+# chmod 4555 [path_to_file]
+
+# ls -lrt /usr/bin/passwd
+-r-sr-sr-x   1 root     sys        31396 Jan 20  2014 /usr/bin/passwd
+
+SGID Bit
+*If set on a file, it allows the file to be executed as the group that owns the file (similar to SUID)
+*If set on a directory, any files created in the directory will have their group ownership set to that
+ of the directory owner
+# chmod 2555 [path_to_file]
+
+Sticky Bit
+At the directory level, it restricts file deletion. Only the owner (and root) of a file can remove
+ the file within that directory. A common example of this is the /tmp directory:
+
+# ls -ld /var/tmp
+drwxrwxrwt  2   sys   sys   512   Jan 26 11:02  /var/tmp
+
+- T refers to when the execute permissions are off.
+- t refers to when the execute permissions are on.
+
+Set sticky bit
+# chmod +t [path_to_directory]
+or 
+# chmod 1777 [path_to_directory]

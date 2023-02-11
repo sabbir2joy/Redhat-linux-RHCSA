@@ -1,0 +1,33 @@
+Standard File Permissions
+#ls -lih
+52675202 drwxr-xr-x. 2 root root    6 Aug 31 22:45 Documents
+Inode > file type,Permission for Owner, Group Others > Num of links
+> Owner > Group Owner > file size > Date
+Inode- df -i (To check Inode)
+#cp -p filename /dir (copy file with permission)
+Permission : r=4, w=2, x=1
+
+Change Owner
+#chown username test.txt
+#chown username:groupname file.txt/dir
+#chown username.groupname file.txt/dir
+#chown :groupname file.txt/dir
+
+Change Group
+#chgrp groupname filename
+
+Change Permission Octal Method)
+#chmod 770 test.txt (Owner=7, Group=7, Other=0)
+
+Change Permission (Alphabetecil method)
+chmod u-x/g+wx/o=r test.txt
+
+UMASK = File defaults permission levels depends on umask value
+#check umask value
+umask = 0022 (1st digit special permission)
+Maximum permission for file 666 - umask value(022) = 644 (Effective permission)
+*For Dir execute permission must be enabled
+**Maximum permission for dir 755
+
+
+
