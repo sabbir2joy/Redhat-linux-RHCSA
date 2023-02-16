@@ -1,0 +1,41 @@
+Class 23
+File Compression:
+#gzip
+#bzip2
+#tar
+
+gzip
+#gzip file1 >> file1.gz >> zcat file1
+#gzip -k file1 (keep the original file)
+#gzip -r dir1
+Decompress:
+#gzip -d file1.gz
+or
+#gunzip file1.gz
+
+bzip2
+#bzip2 file1 >> file1.bz2 >> bzcat.bz2
+#bzip2 -k file1 
+#bzip2 -r dir1
+Decompress:
+#bzip2 -d file.bz2
+or
+#bunzip2 file.bz2
+
+tar (Tape of Archive)
+#etc --tar >> etc.tar >> gzip >> etc.tar.gz
+#etc --tar >> etc.tar >> bzip2 >> etc.tar.bz2
+
+#tar -cvf <filename> <source>
+#tar -cvf /backup/myhome.tar /home
+#tar -cvf /backup/myhome.tar /home /etc /opt
+#tar  -tvf file.tar (ls -l for tar file)
+#tar -xvf /backup/etc.tar -C /home
+
+tar+gzip (tar and gz in one shot)
+#tar -czvf etc.tar.gz /etc (Compress)
+#tar -xzvf etc.tar.gz -C /Destination (Decompress)
+
+tar+bzip2 (tar and bz2 in one shot)
+#tar -cjvf etc.tar.bz2 /etc (Compress)
+#tar -xjvf etc.tar.bz2 -C /Destination (Decompress)
