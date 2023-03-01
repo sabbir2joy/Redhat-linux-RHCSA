@@ -1,0 +1,44 @@
+Class 22
+
+Inode Number: Its a number which indecates file. Its limited according to partition.
+
+File : Link
+- Soft Link : Shortcut link of a file. It edits/removes the content of linked file when source file is edited.
+	Different Inode num of source file and linked file.
+- Hard Link : It makes a similer type file with similer Inode number. 
+
+#ls -li (To show files with Inode number)
+# df -i (To show partition inode)
+Soft Link
+# ln -s <source file> <link file>
+# ln -s /test.txt /root test1
+
+Hard Link
+# ln <source file> <link file>
+# ln /test.txt /root test1
+# unlink test1
+
+find/locate
+
+# locate test.txt
+
+#var/lib/mlocate (locate command find from mlocate)
+#updatedb
+
+# find <location> <file/dir>
+# find / -name file1 (search by file name)
+# find / -iname file1 (ignore case sensetive)
+# find / -user joy
+# find / -group cisco
+# find / -type d -user joy (show user directory)
+# find / -type d -group joy 
+# find /etc -perm 777 (find by dir/file permission)
+# find / -size 2M
+# find . -size 2M (search from current dir)
+# find . -size +2M (search file by size with more than 2M)
+# find . -size +2M -size -5M (Define range)
+fallocate (Create file with predefined file size)
+# fallocate -l 3M file1
+
+# find / -iname file1 -exec ls -l {} \; (Takes argument from find)
+# find / -user joy -exec cp -frv () /backup/ \;
