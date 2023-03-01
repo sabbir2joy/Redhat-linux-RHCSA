@@ -1,0 +1,25 @@
+Repository Create
+
+* Mount RHEL dvd first on /rhel directory
+* Configure YUM
+
+#cd /etc/yum.repos.d/
+#vi test.repo
+
+[appstream]
+name=Packages from APPSTREAM
+baseurl=file:///rhel/AppStream/
+gpgcheck=0
+
+[BaseOS]
+name=Packages from BaseOS
+baseurl=file:///rhel/BaseOS
+gpgcheck=0
+
+For 1 shot command
+yum-config-manager --add-repo=file:///dhaka
+
+For Local Repository 
+* Copy rpm files on /rhel directory
+* yum install createrepo
+* createrepo -d /rhel (For creating repodata folder)
